@@ -1,0 +1,36 @@
+SET(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ../CMakeModules)
+
+SET(USE_FFTW 1)
+FIND_PACKAGE(FFTW)
+FIND_PACKAGE(GSL)
+
+ADD_DEFINITIONS(-DGSL_USE)
+
+INCLUDE_DIRECTORIES( . .. )
+
+ADD_LIBRARY(cppmatrixt 
+  cmatrix
+  cppmatrixt
+  math_misc
+)
+
+ADD_EXECUTABLE(speedComp speedComp)
+TARGET_LINK_LIBRARIES(speedComp cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSconstructors TSconstructors)
+TARGET_LINK_LIBRARIES(TSconstructors cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSfft TSfft)
+TARGET_LINK_LIBRARIES(TSfft cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSfftf TSfftf)
+TARGET_LINK_LIBRARIES(TSfftf cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSmanipulate TSmanipulate)
+TARGET_LINK_LIBRARIES(TSmanipulate cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSsimpleMaths TSsimpleMaths)
+TARGET_LINK_LIBRARIES(TSsimpleMaths cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})
+
+ADD_EXECUTABLE(TSvol TSvol)
+TARGET_LINK_LIBRARIES(TSvol cppmatrixt ${GSL_CONFIG_LIBS} ${FFTW_LIB})

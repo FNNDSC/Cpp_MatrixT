@@ -1,0 +1,9 @@
+#
+# Standard CMatrix<GSL_complex> save file.
+#        Created by	rudolph
+#        Date stamp:	Mon Sep  8 15:18:12 2003
+#        Machine name:	silurian.cortechs.net
+#
+rows=1 columns=5
+:::::::
+1 0	2 0	3 0	4 0	5 0	
